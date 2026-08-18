@@ -1,0 +1,821 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="base_link">
+    <link
+      name="base_link">
+      <inertial>
+        <origin
+          xyz="6.10483661037337E-05 0.00088712829711066 0.0548484947516896"
+          rpy="0 0 0" />
+        <mass
+          value="0.606673726061038" />
+        <inertia
+          ixx="0.000810504728231977"
+          ixy="2.86132951420374E-08"
+          ixz="1.65426694206615E-06"
+          iyy="0.000811428888685944"
+          iyz="-2.02043306195685E-06"
+          izz="0.000686571783532389" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/base_link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/base_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+
+  <xacro:macro name="Main_1_Link">
+    <link
+      name="Main_1_Link">
+      <inertial>
+        <origin
+          xyz="-0.000535747842268744 0.0329508527955374 -9.0000000000002E-05"
+          rpy="0 0 0" />
+        <mass
+          value="0.0157120232933615" />
+        <inertia
+          ixx="1.04207957946001E-05"
+          ixy="6.65261563033867E-08"
+          ixz="-2.79695286376013E-21"
+          iyy="6.3302257174426E-06"
+          iyz="-1.48966365300576E-21"
+          izz="4.56030811672516E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Main_1_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Main_1_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Main_1_Joint"
+      type="revolute">
+      <origin
+        xyz="0 0.033994 0.082211"
+        rpy="1.5708 0.016174 1.5708" />
+      <parent
+        link="base_link" />
+      <child
+        link="Main_1_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="-1"
+        effort="2"
+        velocity="1000" />
+    </joint>
+  </xacro:macro>
+
+
+  <xacro:macro name="Out_1_Link">
+    <link
+      name="Out_1_Link">
+      <inertial>
+        <origin
+          xyz="-0.000238568911329937 0.0199085484128003 -8.99982504162629E-05"
+          rpy="0 0 0" />
+        <mass
+          value="0.0136187304994763" />
+        <inertia
+          ixx="3.64179520695042E-06"
+          ixy="1.85391666443482E-08"
+          ixz="-1.07591799730526E-13"
+          iyy="1.17762675681499E-06"
+          iyz="-4.06303403749204E-13"
+          izz="2.69525213768084E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Out_1_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Out_1_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Out_1_Joint"
+      type="revolute">
+      <origin
+        xyz="0 0.0667911467519449 0.0696788586422166"
+        rpy="1.5707963267949 0.0161743379073906 1.57079632679491" />
+      <parent
+        link="base_link" />
+      <child
+        link="Out_1_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Main_1_Joint"
+        multiplier="1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+
+  <xacro:macro name="Support_1_Link">
+    <link
+      name="Support_1_Link">
+      <inertial>
+        <origin
+          xyz="-0.0123631851738163 0.00547576442060571 -8.99999779483683E-05"
+          rpy="0 0 0" />
+        <mass
+          value="0.0122909079008009" />
+        <inertia
+          ixx="8.48949906863574E-07"
+          ixy="4.95789221160508E-07"
+          ixz="2.06056282894619E-16"
+          iyy="1.50474900925647E-06"
+          iyz="-1.70451449345108E-15"
+          izz="1.48435203428893E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Support_1_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Support_1_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Support_1_Joint"
+      type="revolute">
+      <origin
+        xyz="-0.000889549797987152 0.0549928059036544 0"
+        rpy="0 0 0" />
+      <parent
+        link="Out_1_Link" />
+      <child
+        link="Support_1_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Main_1_Joint"
+        multiplier="-1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+
+  <xacro:macro name="Pad_1_Link">
+    <link
+      name="Pad_1_Link">
+      <inertial>
+        <origin
+          xyz="0.00493838635631292 -0.000177137702892627 -8.99989859266225E-05"
+          rpy="0 0 0" />
+        <mass
+          value="0.00909573489215947" />
+        <inertia
+          ixx="1.5263456533175E-06"
+          ixy="1.37219715171367E-07"
+          ixz="-5.68914467932543E-15"
+          iyy="4.74434481145163E-07"
+          iyz="2.1359093024446E-15"
+          izz="1.28732406525385E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Pad_1_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Pad_1_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Pad_1_Joint"
+      type="fixed">
+      <origin
+        xyz="-0.043496177396521 0.0402499021664913 0"
+        rpy="0 0 0" />
+      <parent
+        link="Support_1_Link" />
+      <child
+        link="Pad_1_Link" />
+      <axis
+        xyz="0 0 0" />
+    </joint>
+  </xacro:macro>
+
+
+  <xacro:macro name="Main_2_Link">
+    <link
+      name="Main_2_Link">
+      <inertial>
+        <origin
+          xyz="2.45539699683661E-13 0.0329552078692227 -5.15540735102071E-13"
+          rpy="0 0 0" />
+        <mass
+          value="0.0157120232933615" />
+        <inertia
+          ixx="1.04218774432274E-05"
+          ixy="9.95511867207569E-22"
+          ixz="-2.32934060494933E-21"
+          iyy="6.32914406881531E-06"
+          iyz="-2.40089172793516E-21"
+          izz="4.56030811672515E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Main_2_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Main_2_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Main_2_Joint"
+      type="revolute">
+      <origin
+        xyz="-0.028329 -0.014912 0.083002"
+        rpy="1.5848 -0.0068726 -2.618" />
+      <parent
+        link="base_link" />
+      <child
+        link="Main_2_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="-1"
+        effort="2"
+        velocity="1000" />
+      <mimic
+        joint="Main_1_Joint"
+        multiplier="1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+
+  <xacro:macro name="Out_2_Link">
+    <link
+      name="Out_2_Link">
+      <inertial>
+        <origin
+          xyz="8.3455594281967E-05 0.0199098028677392 1.79239523917518E-09"
+          rpy="0 0 0" />
+        <mass
+          value="0.0136187304994763" />
+        <inertia
+          ixx="3.64175022691304E-06"
+          ixy="-2.13198748979172E-08"
+          ixz="-1.1414912755192E-13"
+          iyy="1.17767173685237E-06"
+          iyz="-4.04510112385358E-13"
+          izz="2.69525213768084E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Out_2_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Out_2_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Out_2_Joint"
+      type="revolute">
+      <origin
+        xyz="-0.0569042876721976 -0.0316012145153478 0.0712704287330768"
+        rpy="1.58480388452747 -0.00678989444617694 -2.61803234894306" />
+      <parent
+        link="base_link" />
+      <child
+        link="Out_2_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Main_2_Joint"
+        multiplier="1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+
+  <xacro:macro name="Support_2_Link">
+    <link
+      name="Support_2_Link">
+      <inertial>
+        <origin
+          xyz="-0.0123702645443338 0.00545975303282406 2.19268804502182E-11"
+          rpy="0 0 0" />
+        <mass
+          value="0.0122909079008008" />
+        <inertia
+          ixx="8.47667196140137E-07"
+          ixy="4.94938487017408E-07"
+          ixz="2.08263537691881E-16"
+          iyy="1.50603171997988E-06"
+          iyz="-1.70424784352713E-15"
+          izz="1.48435203428892E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Support_2_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Support_2_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Support_2_Joint"
+      type="revolute">
+      <origin
+        xyz="0 0.0549999999999986 0"
+        rpy="0 0 0" />
+      <parent
+        link="Out_2_Link" />
+      <child
+        link="Support_2_Link" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Main_2_Joint"
+        multiplier="1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+
+  <xacro:macro name="Pad_2_Link">
+    <link
+      name="Pad_2_Link">
+      <inertial>
+        <origin
+          xyz="0.00444230028121621 -0.000177148196383092 1.59317946335502E-09"
+          rpy="0 0 0" />
+        <mass
+          value="0.00909573436524331" />
+        <inertia
+          ixx="1.526346267087E-06"
+          ixy="1.37217372336794E-07"
+          ixz="-5.65396096890285E-14"
+          iyy="4.74434022342762E-07"
+          iyz="5.61264906120924E-14"
+          izz="1.28732422145679E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Pad_2_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Pad_2_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Pad_2_Joint"
+      type="fixed">
+      <origin
+        xyz="-0.0430521666305954 0.0401941967009787 0"
+        rpy="0 0 0.00129696423438193" />
+      <parent
+        link="Support_2_Link" />
+      <child
+        link="Pad_2_Link" />
+      <axis
+        xyz="0 0 0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Main_3_Link">
+    <link
+      name="Main_3_Link">
+      <inertial>
+        <origin
+          xyz="-3.36876360140792E-13 0.0329552078692228 0.0235000000001598"
+          rpy="0 0 0" />
+        <mass
+          value="0.0157120232933615" />
+        <inertia
+          ixx="1.04218774432274E-05"
+          ixy="-3.57342024622908E-22"
+          ixz="4.2351647362715E-22"
+          iyy="6.32914406881532E-06"
+          iyz="1.15557131573658E-21"
+          izz="4.56030811672515E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Main_3_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Main_3_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Main_3_Joint"
+      type="revolute">
+      <origin
+        xyz="0.039989 0.0052815 0.082675"
+        rpy="1.5568 -0.01517 -0.52344" />
+      <parent
+        link="base_link" />
+      <child
+        link="Main_3_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="-1"
+        effort="2"
+        velocity="1000" />
+      <mimic
+        joint="Main_1_Joint"
+        multiplier="1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+
+  <xacro:macro name="Out_3_Link">
+    <link
+      name="Out_3_Link">
+      <inertial>
+        <origin
+          xyz="8.34555943282356E-05 0.0199098028677413 1.79203783756687E-09"
+          rpy="0 0 0" />
+        <mass
+          value="0.0136187304994763" />
+        <inertia
+          ixx="3.64175022691304E-06"
+          ixy="-2.13198748979175E-08"
+          ixz="-1.14149128398953E-13"
+          iyy="1.17767173685237E-06"
+          iyz="-4.04510107041048E-13"
+          izz="2.69525213768083E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Out_3_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Out_3_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Out_3_Joint"
+      type="revolute">
+      <origin
+        xyz="0.056814 -0.031757 0.071273"
+        rpy="1.5568 -0.015087 -0.52344" />
+      <parent
+        link="base_link" />
+      <child
+        link="Out_3_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Main_3_Joint"
+        multiplier="1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+
+  <xacro:macro name="Support_3_Link">
+    <link
+      name="Support_3_Link">
+      <inertial>
+        <origin
+          xyz="-0.0123245413983009 0.00556219627646529 2.49060945478607E-11"
+          rpy="0 0 0" />
+        <mass
+          value="0.0122909079008009" />
+        <inertia
+          ixx="8.55924845764464E-07"
+          ixy="5.00332350260027E-07"
+          ixz="1.94114328764031E-16"
+          iyy="1.49777407035557E-06"
+          iyz="-1.70591394115266E-15"
+          izz="1.48435203428893E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Support_3_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Support_3_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Support_3_Joint"
+      type="revolute">
+      <origin
+        xyz="0 0.0549999999999922 0"
+        rpy="0 0 0" />
+      <parent
+        link="Out_3_Link" />
+      <child
+        link="Support_3_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Main_3_Joint"
+        multiplier="-1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Pad_3_Link">
+    <link
+      name="Pad_3_Link">
+      <inertial>
+        <origin
+          xyz="0.00444230031208294 -0.000177148394120613 7.569224344528E-10"
+          rpy="0 0 0" />
+        <mass
+          value="0.00909573539619472" />
+        <inertia
+          ixx="1.52634626128454E-06"
+          ixy="1.3721736824991E-07"
+          ixz="5.2473798920286E-14"
+          iyy="4.74433991276996E-07"
+          iyz="3.66713281031436E-14"
+          izz="1.28732420247029E-06" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Pad_3_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_ctm3f123_gripper_visualization/meshes/Pad_3_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Pad_3_Joint"
+      type="fixed">
+      <origin
+        xyz="-0.0427172096547915 0.0405499999872442 0"
+        rpy="0 0 -0.00699973234500595" />
+      <parent
+        link="Support_3_Link" />
+      <child
+        link="Pad_3_Link" />
+      <axis
+        xyz="0 0 0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="crt_ctm3f123_sync">
+    <xacro:base_link/>
+    <xacro:Main_1_Link/>
+    <xacro:Out_1_Link/>
+    <xacro:Support_1_Link/>
+    <xacro:Pad_1_Link/>
+    <xacro:Main_2_Link/>
+    <xacro:Out_2_Link/>
+    <xacro:Support_2_Link/>
+    <xacro:Pad_2_Link/>
+    <xacro:Main_3_Link/>
+    <xacro:Out_3_Link/>
+    <xacro:Support_3_Link/>
+    <xacro:Pad_3_Link/>
+  </xacro:macro>
+</robot>

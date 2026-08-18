@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="_Link" params="prefix fingerprefix">
+    <link name="${prefix}${fingerprefix}_Link">
+      <inertial>
+      <origin xyz="-3.8186E-17 -0.0084622 0.025504" rpy="0 0 0" />
+      <mass value="0.10202" />
+      <inertia
+        ixx="3.5094E-05"
+        ixy="-4.639E-22"
+        ixz="1.1367E-22"
+        iyy="5.0389E-05"
+        iyz="4.2352E-22"
+        izz="2.4261E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://crt_ctpm14_gripper_visualization/meshes/${fingerprefix}_Link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://crt_ctpm14_gripper_visualization/meshes/${fingerprefix}_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  </xacro:macro>
+
+  <xacro:include filename="$(find crt_ctpm14_gripper_visualization)/urdf/crt_ctpm14.xacro" />
+
+  <xacro:macro name="finger_joint" params="prefix">
+    <joint name="${prefix}finger_joint" type="prismatic">
+      <origin xyz="0.02547 0 0.11336" rpy="1.5708 0 -1.5708" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}left_Link" />
+      <axis xyz="0 0 -1" />
+      <limit lower="0" upper="-0.007" velocity="0.05" effort="1" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="rightout_joint" params="prefix">
+    <joint name="${prefix}rightout_joint" type="prismatic">
+      <origin xyz="-0.025538 0 0.11336" rpy="-1.5708 0 -1.5708" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}right_Link" />
+      <axis xyz="0 0 -1" />
+      <limit lower="0" upper="-0.007" velocity="0.05" effort="1" />
+    <mimic joint="${prefix}finger_joint" multiplier="1" offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="crt_ctpm_14" params="prefix">
+    <xacro:base_link prefix="${prefix}"/>
+    <xacro:_Link prefix="${prefix}" fingerprefix="left" />
+    <xacro:_Link prefix="${prefix}" fingerprefix="right" />
+    <xacro:finger_joint prefix="${prefix}"/>
+    <xacro:rightout_joint prefix="${prefix}"/>
+  </xacro:macro>
+</robot> 

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="base_link" params="prefix">
+    <link name="${prefix}base_link">
+      <inertial>
+        <origin xyz="-3.3759E-05 2.6591E-18 0.1049" rpy="0 0 0" />
+        <mass value="0.10202" />
+        <inertia ixx="2.4261E-05" ixy="1.1367E-22" ixz="-4.2352E-22" iyy="3.5094E-05" iyz="4.639E-22" izz="5.0389E-05" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://crt_ctpm14_gripper_visualization/meshes/base_link.STL" />
+        </geometry>
+        <material name="">
+          <color rgba="0.69804 0.69804 0.69804 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://crt_ctpm14_gripper_visualization/meshes/base_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+</robot>

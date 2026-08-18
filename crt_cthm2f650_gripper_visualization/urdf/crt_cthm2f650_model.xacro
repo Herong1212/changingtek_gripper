@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot name="crt_cthm2f650_model" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find crt_cthm2f650_gripper_visualization)/urdf/crt_cthm2f650.xacro" />
+  <xacro:crt_cthm2f650/>
+</robot>

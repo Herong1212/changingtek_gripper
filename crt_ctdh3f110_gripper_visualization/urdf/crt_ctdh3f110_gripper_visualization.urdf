@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="crt_ctdh3f110_gripper_visualization">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-3.0002E-05 -4.9644E-05 0.066798"
+        rpy="0 0 0" />
+      <mass
+        value="0.49713" />
+      <inertia
+        ixx="0.00033383"
+        ixy="-3.4264E-07"
+        ixz="-2.8843E-07"
+        iyy="0.00033331"
+        iyz="-1.0343E-06"
+        izz="0.00031927" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link13">
+    <inertial>
+      <origin
+        xyz="-0.0035312 0.022934 0.0086404"
+        rpy="0 0 0" />
+      <mass
+        value="0.029181" />
+      <inertia
+        ixx="1.3033E-05"
+        ixy="1.2869E-07"
+        ixz="4.6605E-07"
+        iyy="1.2182E-05"
+        iyz="-3.0251E-06"
+        izz="9.9366E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link13.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link13.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint13"
+    type="revolute">
+    <origin
+      xyz="-0.029046 0.01677 0.1191"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link13" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1"
+      upper="0"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Link12">
+    <inertial>
+      <origin
+        xyz="0.020815 0.015323 3.446E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.030165" />
+      <inertia
+        ixx="6.3013E-06"
+        ixy="-2.0448E-07"
+        ixz="4.0541E-09"
+        iyy="6.4812E-06"
+        iyz="-1.2408E-08"
+        izz="5.8353E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link12.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link12.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint12"
+    type="revolute">
+    <origin
+      xyz="-0.0063006 0.041019 0.030503"
+      rpy="1.5708 0 1.7232" />
+    <parent
+      link="Link13" />
+    <child
+      link="Link12" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1"
+      upper="0"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Link11">
+    <inertial>
+      <origin
+        xyz="0.0220682849152632 0.00531551146303259 5.69195943202205E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0268745218383855" />
+      <inertia
+        ixx="4.45889110321997E-06"
+        ixy="-1.22689380918118E-06"
+        ixz="1.34971676410516E-09"
+        iyy="8.64199768182507E-06"
+        iyz="1.58995416269744E-09"
+        izz="7.46858768488579E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link11.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link11.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint11"
+    type="revolute">
+    <origin
+      xyz="0.04178 0.029248 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link12" />
+    <child
+      link="Link11" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1"
+      upper="0"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Link23">
+    <inertial>
+      <origin
+        xyz="0.0200996830855158 -0.0115948814665728 0.0091404319824489"
+        rpy="0 0 0" />
+      <mass
+        value="0.0291808147793606" />
+      <inertia
+        ixx="1.23884882111721E-05"
+        ixy="3.87786497051679E-07"
+        ixz="-2.65163219316604E-06"
+        iyy="1.28254012826531E-05"
+        iyz="1.52853821896308E-06"
+        izz="9.93663530345822E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link23.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link23.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint23"
+    type="revolute">
+    <origin
+      xyz="0.029046 0.01677 0.1186"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link23" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1"
+      upper="0"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Link22">
+    <inertial>
+      <origin
+        xyz="-0.0208149724534695 0.0153266052099856 -3.44808788429185E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0301652031873904" />
+      <inertia
+        ixx="6.30129252237456E-06"
+        ixy="2.04473470759793E-07"
+        ixz="4.05688136318259E-09"
+        iyy="6.48115941783835E-06"
+        iyz="1.24115355399397E-08"
+        izz="5.8352848096768E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link22.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link22.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint22"
+    type="revolute">
+    <origin
+      xyz="0.03594 -0.02075 0.031"
+      rpy="1.5708 0 2.618" />
+    <parent
+      link="Link23" />
+    <child
+      link="Link22" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Link21">
+    <inertial>
+      <origin
+        xyz="-0.0220690222545141 0.00531363745555281 -5.62117962785158E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0268742700095974" />
+      <inertia
+        ixx="4.459054433657E-06"
+        ixy="1.22637677151005E-06"
+        ixz="1.02425192435208E-09"
+        iyy="8.64080004095595E-06"
+        iyz="-1.342841624111E-09"
+        izz="7.46762812059938E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link21.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link21.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint21"
+    type="revolute">
+    <origin
+      xyz="-0.04178 0.029254 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link22" />
+    <child
+      link="Link21" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Link33">
+    <inertial>
+      <origin
+        xyz="-0.0200913622613729 -0.0116093449877362 0.00864047673971273"
+        rpy="0 0 0" />
+      <mass
+        value="0.029180821974587" />
+      <inertia
+        ixx="1.23805769264334E-05"
+        ixy="-3.82812536707291E-07"
+        ixz="2.64995620938162E-06"
+        iyy="1.28342349117153E-05"
+        iyz="1.53154197152145E-06"
+        izz="9.93631555119799E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link33.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link33.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint33"
+    type="revolute">
+    <origin
+      xyz="0 -0.03354 0.1191"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link33" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1"
+      upper="0"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Link32">
+    <inertial>
+      <origin
+        xyz="-0.018934558321389 0.0153248441749129 -3.4453756827188E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.030165199989468" />
+      <inertia
+        ixx="6.30129981313272E-06"
+        ixy="2.04478725409673E-07"
+        ixz="4.05367554913281E-09"
+        iyy="6.48116471797108E-06"
+        iyz="1.24083605777153E-08"
+        izz="5.83528961128803E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link32.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link32.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint32"
+    type="revolute">
+    <origin
+      xyz="-0.037569 -0.02169 0.030502"
+      rpy="1.5708 0 0.5236" />
+    <parent
+      link="Link33" />
+    <child
+      link="Link32" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Link31">
+    <inertial>
+      <origin
+        xyz="-0.0204257321214593 0.00531450401902912 -5.51766545714427E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0268741519964675" />
+      <inertia
+        ixx="4.45875472154283E-06"
+        ixy="1.22671319229399E-06"
+        ixz="1.22838001412122E-09"
+        iyy="8.64170154511994E-06"
+        iyz="-1.43184376799078E-09"
+        izz="7.46827026476327E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link31.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctdh3f110_gripper_visualization/meshes/Link31.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint31"
+    type="revolute">
+    <origin
+      xyz="-0.041542 0.029251 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link32" />
+    <child
+      link="Link31" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="10"
+      velocity="10" />
+  </joint>
+</robot>

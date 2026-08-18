@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot name="crt_ctm_2f_110_model" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find crt_ctm2f110_gripper_visualization)/urdf/urdf_async/crt_ctm2f110_model_macro_async.xacro" />
+  <xacro:crt_ctm_2f_110 prefix=""/>
+</robot>

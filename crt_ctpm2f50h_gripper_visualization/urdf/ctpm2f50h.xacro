@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="crt_ctpm2f50h_gripper_visualization" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.000205644649099209 -1.02779454716656E-05 0.0479185719773835"
+        rpy="0 0 0" />
+      <mass
+        value="1.13758449010389" />
+      <inertia
+        ixx="0.000637430929438368"
+        ixy="1.27894820114056E-07"
+        ixz="-5.6255041852591E-06"
+        iyy="0.000730154786314872"
+        iyz="2.33656557614586E-07"
+        izz="0.000732181377560946" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm2f50h_gripper_visualization/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.890196078431372 0.890196078431372 0.913725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm2f50h_gripper_visualization/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Left_Link">
+    <inertial>
+      <origin
+        xyz="-0.00966138172777936 -0.0228246772939132 0.0102156451251757"
+        rpy="0 0 0" />
+      <mass
+        value="0.0447412817374153" />
+      <inertia
+        ixx="5.76340255937816E-06"
+        ixy="-1.34634780522411E-07"
+        ixz="2.51890630907923E-07"
+        iyy="5.05355165438814E-06"
+        iyz="8.45206289535499E-07"
+        izz="7.39792611382058E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm2f50h_gripper_visualization/meshes/Left_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.890196078431372 0.890196078431372 0.913725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm2f50h_gripper_visualization/meshes/Left_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Joint"
+    type="prismatic">
+    <origin
+      xyz="0.030444 0 0.13741"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left_Link" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="0.025"
+      effort="2"
+      velocity="1000" />
+  </joint>
+  <link
+    name="Left_Pad_Link">
+    <inertial>
+      <origin
+        xyz="-3.46944695195361E-18 0.00164100460022655 -3.36293138167172E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.00164972344172307" />
+      <inertia
+        ixx="1.85836483027E-07"
+        ixy="-6.48704682399354E-25"
+        ixz="-5.11441246026462E-22"
+        iyy="7.23415984682111E-08"
+        iyz="1.84639116636565E-23"
+        izz="1.14594700186604E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm2f50h_gripper_visualization/meshes/Left_Pad_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm2f50h_gripper_visualization/meshes/Left_Pad_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Pad_Joint"
+    type="fixed">
+    <origin
+      xyz="-0.0044445 0.0035361 0"
+      rpy="0 0 0" />
+    <parent
+      link="Left_Link" />
+    <child
+      link="Left_Pad_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Right_Link">
+    <inertial>
+      <origin
+        xyz="-0.00966138172777944 -0.0228246772939132 0.0102156451251758"
+        rpy="0 0 0" />
+      <mass
+        value="0.0447412817374153" />
+      <inertia
+        ixx="5.76340255937816E-06"
+        ixy="-1.34634780522417E-07"
+        ixz="2.51890630907912E-07"
+        iyy="5.05355165438814E-06"
+        iyz="8.45206289535497E-07"
+        izz="7.39792611382059E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm2f50h_gripper_visualization/meshes/Right_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.890196078431372 0.890196078431372 0.913725490196078 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm2f50h_gripper_visualization/meshes/Right_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Joint"
+    type="prismatic">
+    <origin
+      xyz="-0.030444 0 0.13741"
+      rpy="1.5708 0 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right_Link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.03"
+      effort="2"
+      velocity="1000" />
+    <mimic
+      joint="Left_Joint"
+      multiplier="-1"
+      offset="0" />
+  </joint>
+  <link
+    name="Right_Pad_Link">
+    <inertial>
+      <origin
+        xyz="-3.46944695195361E-18 0.00164100460022655 -1.52506542648385E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.00164972344172307" />
+      <inertia
+        ixx="1.85836483027E-07"
+        ixy="2.05791801616443E-24"
+        ixz="-1.59095381499404E-23"
+        iyy="7.23415984682111E-08"
+        iyz="1.97284138738626E-23"
+        izz="1.14594700186604E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm2f50h_gripper_visualization/meshes/Right_Pad_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm2f50h_gripper_visualization/meshes/Right_Pad_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Pad_Joint"
+    type="fixed">
+    <origin
+      xyz="-0.0044444817368788 0.00353610269321061 0"
+      rpy="0 0 0" />
+    <parent
+      link="Right_Link" />
+    <child
+      link="Right_Pad_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

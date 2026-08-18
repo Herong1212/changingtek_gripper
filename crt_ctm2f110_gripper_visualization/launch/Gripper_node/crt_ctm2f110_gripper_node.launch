@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <node pkg="crt_ctm2f110_gripper_visualization" type="gripper_listener" name="gripper_listener" output="screen" />
+
+</launch>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot name="crt_ctmg60_async_model" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find crt_ctmg60_gripper_visualization)/urdf/crt_ctmg60_async.xacro" />
+  <xacro:crt_ctmg60_async/>
+</robot>

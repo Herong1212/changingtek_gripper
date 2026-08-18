@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="crt_ctpm3f20e_gripper_visualization">
+  <link name="world"/>
+  <joint name="world_to_base" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="2.27144412866413E-05 -0.018537305151962 2.27144412866413E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.66110522670732" />
+      <inertia
+        ixx="0.000340520144347979"
+        ixy="1.77015051256606E-07"
+        ixz="-3.21491606379905E-06"
+        iyy="0.000507340758709144"
+        iyz="-1.03443756754932E-07"
+        izz="0.000336689142317247" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm3f20e_gripper_visualization/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.666666666666667 0.698039215686274 0.768627450980392 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm3f20e_gripper_visualization/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Slide_1_Link">
+    <inertial>
+      <origin
+        xyz="1.04083408558608E-17 -2.1600210825078E-05 0.0110235967884269"
+        rpy="0 0 0" />
+      <mass
+        value="0.0173469729206652" />
+      <inertia
+        ixx="6.26256675627352E-07"
+        ixy="-1.92242851291375E-21"
+        ixz="2.07867179212126E-19"
+        iyy="7.32887883303786E-07"
+        iyz="8.21950215207488E-10"
+        izz="3.20085996800568E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm3f20e_gripper_visualization/meshes/Slide_1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.643137254901961 0.674509803921569 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm3f20e_gripper_visualization/meshes/Slide_1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Slide_1_Joint"
+    type="prismatic">
+    <origin
+      xyz="0.02325 0.04027 0.01547"
+      rpy="1.5708 0 -0.5236" />
+    <parent
+      link="base_link" />
+    <child
+      link="Slide_1_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.02"
+      upper="0"
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="Slide_2_Link">
+    <inertial>
+      <origin
+        xyz="1.56125112837913E-17 -2.16002108240007E-05 0.0110235967884269"
+        rpy="0 0 0" />
+      <mass
+        value="0.0173469729206652" />
+      <inertia
+        ixx="6.26256675627351E-07"
+        ixy="-1.92997653600331E-21"
+        ixz="-2.07999528110134E-19"
+        iyy="7.32887883303784E-07"
+        iyz="8.21950215207522E-10"
+        izz="3.20085996800567E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm3f20e_gripper_visualization/meshes/Slide_2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.643137254901961 0.674509803921569 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm3f20e_gripper_visualization/meshes/Slide_2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Slide_2_Joint"
+    type="prismatic">
+    <origin
+      xyz="0.02325 -0.04027 0.01547"
+      rpy="1.5708 0 -2.618" />
+    <parent
+      link="base_link" />
+    <child
+      link="Slide_2_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.02"
+      upper="0"
+      effort="1"
+      velocity="1" />
+    <mimic
+      joint="Slide_1_Joint"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="Slide_3_Link">
+    <inertial>
+      <origin
+        xyz="-3.18849779485504E-17 -2.16002108397329E-05 0.0110235967884255"
+        rpy="0 0 0" />
+      <mass
+        value="0.0173469729217247" />
+      <inertia
+        ixx="6.26256675628034E-07"
+        ixy="-1.92315692782449E-21"
+        ixz="1.25325103592209E-21"
+        iyy="7.32887883304453E-07"
+        iyz="8.21950215207494E-10"
+        izz="3.20085996800567E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm3f20e_gripper_visualization/meshes/Slide_3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.615686274509804 0.643137254901961 0.674509803921569 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://crt_ctpm3f20e_gripper_visualization/meshes/Slide_3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Slide_3_Joint"
+    type="prismatic">
+    <origin
+      xyz="-0.0465 0 0.01547"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Slide_3_Link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.02"
+      effort="1"
+      velocity="1" />
+    <mimic
+      joint="Slide_1_Joint"
+      multiplier="-1"
+      offset="0" />
+  </joint>
+</robot>

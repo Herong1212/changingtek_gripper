@@ -1,0 +1,1283 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="base_link">
+    <link
+      name="base_link">
+      <inertial>
+        <origin
+          xyz="0.000380344407007916 0.000200155684031413 -0.228146029850361"
+          rpy="0 0 0" />
+        <mass
+          value="8.38163632233072" />
+        <inertia
+          ixx="0.0593744530974041"
+          ixy="6.13921871412943E-05"
+          ixz="0.000183977071823501"
+          iyy="0.194514023204488"
+          iyz="0.00014909195989444"
+          izz="0.223788413206185" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/base_link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/base_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="Left_1_Link">
+    <link
+      name="Left_1_Link">
+      <inertial>
+        <origin
+          xyz="0.108662194706192 0.013972100271601 2.16543443555518E-08"
+          rpy="0 0 0" />
+        <mass
+          value="2.35815237009961" />
+        <inertia
+          ixx="0.00811616500897367"
+          ixy="0.00128812313563741"
+          ixz="5.17549550063587E-10"
+          iyy="0.00649819284496653"
+          iyz="-9.05262033109528E-10"
+          izz="0.0100369096328525" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_1_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.223529411764706 0.223529411764706 0.223529411764706 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_1_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Left_1_Joint"
+      type="revolute">
+      <origin
+        xyz="-0.197 -0.00036855 -0.3245"
+        rpy="1.5708 0 3.1416" />
+      <parent
+        link="base_link" />
+      <child
+        link="Left_1_Link" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="0"
+        upper="1"
+        effort="2"
+        velocity="1000" />
+      <mimic
+        joint="Left_2_Joint"
+        multiplier="1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Left_Push_Link">
+    <link
+      name="Left_Push_Link">
+      <inertial>
+        <origin
+          xyz="-0.000253654334918474 0.000416659095722 1.5709850766926E-09"
+          rpy="0 0 0" />
+        <mass
+          value="0.0909850188042388" />
+        <inertia
+          ixx="7.3369167699726E-06"
+          ixy="3.29516775741093E-07"
+          ixz="4.75027572089589E-13"
+          iyy="6.99624075928001E-06"
+          iyz="-5.78028782843342E-15"
+          izz="1.17713122486218E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_Push_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_Push_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Left_Push_Joint"
+      type="prismatic">
+      <origin
+        xyz="0.274151815297701 -0.094562524654197 0"
+        rpy="0 0 0" />
+      <parent
+        link="Left_1_Link" />
+      <child
+        link="Left_Push_Link" />
+      <axis
+        xyz="-0.520848995108535 0.853647066192808 0.00173512963252981" />
+      <limit
+        lower="0"
+        upper="-0.02"
+        effort="2"
+        velocity="1000" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Right_1_Link">
+    <link
+      name="Right_1_Link">
+      <inertial>
+        <origin
+          xyz="0.145964979768084 0.0188416403281364 1.3809544192967E-08"
+          rpy="0 0 0" />
+        <mass
+          value="1.75733462923068" />
+        <inertia
+          ixx="0.00671023640033753"
+          ixy="0.00128665561498255"
+          ixz="8.65043077311704E-10"
+          iyy="0.00509378150154635"
+          iyz="-6.67864554606518E-10"
+          izz="0.0099897644195442" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_1_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.223529411764706 0.223529411764706 0.223529411764706 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_1_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Right_1_Joint"
+      type="revolute">
+      <origin
+        xyz="0.197 -0.00036855 -0.3245"
+        rpy="1.5708 0 0" />
+      <parent
+        link="base_link" />
+      <child
+        link="Right_1_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Left_1_Joint"
+        multiplier="-1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Right_Push_Link">
+    <link
+      name="Right_Push_Link">
+      <inertial>
+        <origin
+          xyz="-0.000253654334918696 0.000416659095721972 1.57098500281171E-09"
+          rpy="0 0 0" />
+        <mass
+          value="0.0909850188042387" />
+        <inertia
+          ixx="7.3369167699726E-06"
+          ixy="3.29516775741091E-07"
+          ixz="4.75027575320787E-13"
+          iyy="6.99624075928002E-06"
+          iyz="-5.78028643228097E-15"
+          izz="1.17713122486218E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_Push_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_Push_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Right_Push_Joint"
+      type="prismatic">
+      <origin
+        xyz="0.274151815296988 -0.0945625246560179 0"
+        rpy="0 0 0" />
+      <parent
+        link="Right_1_Link" />
+      <child
+        link="Right_Push_Link" />
+      <axis
+        xyz="-0.520848995106693 0.853647066193932 0.00173512963252985" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Left_Push_Joint"
+        multiplier="1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="v3_Link">
+    <link name="v3_Link"></link>
+    <joint
+      name="v3_link_Joint"
+      type="revolute">
+      <origin
+        xyz="-0.095 -0.00036855 -0.426"
+        rpy="1.5708 0 3.1416" />
+      <parent
+        link="base_link" />
+      <child
+        link="v3_Link" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="0"
+        upper="1"
+        effort="2"
+        velocity="1000" />
+      <mimic
+        joint="Left_Push_Joint"
+        multiplier="-1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Left_2_Link">
+    <link
+      name="Left_2_Link">
+      <inertial>
+        <origin
+          xyz="0.138072271350383 -0.0477287628830105 4.24378360007703E-14"
+          rpy="0 0 0" />
+        <mass
+          value="0.601752896258549" />
+        <inertia
+          ixx="0.000734913427304386"
+          ixy="0.00140247933871755"
+          ixz="1.82090501415622E-19"
+          iyy="0.00428178301737352"
+          iyz="-1.0344387551674E-19"
+          izz="0.00460699625824503" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_2_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_2_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Left_2_Joint"
+      type="revolute">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent
+        link="v3_Link" />
+      <child
+        link="Left_2_Link" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="0"
+        upper="1"
+        effort="2"
+        velocity="1000" />
+      <!-- <mimic
+        joint="Left_1_Joint"
+        multiplier="1"
+        offset="0" /> -->
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="v4_Link">
+    <link name="v4_Link"></link>
+    <joint
+      name="v4_link_Joint"
+      type="prismatic">
+      <origin
+        xyz="0.168817203600974 -0.0320273597460812 0"
+        rpy="0 0 0" />
+      <parent
+        link="Left_2_Link" />
+      <child
+        link="v4_Link" />
+      <axis
+        xyz="-0.520848995108535 0.853647066192808 0.00173512963252981" />
+      <limit
+        lower="0"
+        upper="1"
+        effort="2"
+        velocity="1000" />
+      <mimic
+        joint="Left_Push_Joint"
+        multiplier="-0.1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Left_in_Link">
+    <link
+      name="Left_in_Link">
+      <inertial>
+        <origin
+          xyz="0.0364698944518976 0.0331640092172622 7.52965225053667E-11"
+          rpy="0 0 0" />
+        <mass
+          value="0.0189842273092798" />
+        <inertia
+          ixx="7.6702783226048E-06"
+          ixy="-7.90121078795473E-06"
+          ixz="-2.51237982111438E-11"
+          iyy="9.17411131682009E-06"
+          iyz="2.76452769223894E-11"
+          izz="1.63884310602453E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_in_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_in_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Left_in_Joint"
+      type="revolute">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent
+        link="v4_Link" />
+      <child
+        link="Left_in_Link" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Left_2_Joint"
+        multiplier="-0.9"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Left_Lever_Link">
+    <link
+      name="Left_Lever_Link">
+      <inertial>
+        <origin
+          xyz="0.0396214366116736 0.0360298834331575 -1.57886918909455E-11"
+          rpy="0 0 0" />
+        <mass
+          value="0.00945776468363209" />
+        <inertia
+          ixx="5.28197876115624E-06"
+          ixy="-5.75236998080716E-06"
+          ixz="-9.07058038498795E-21"
+          iyy="6.37682353682971E-06"
+          iyz="-8.2714801061602E-21"
+          izz="1.16077600567449E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_Lever_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_Lever_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Left_Lever_Joint"
+      type="prismatic">
+      <origin
+        xyz="0.0276762998139219 0.0251675340579723 0"
+        rpy="0 0 0" />
+      <parent
+        link="Left_in_Link" />
+      <child
+        link="Left_Lever_Link" />
+      <axis
+        xyz="0.739843447587892 0.672779067050441 0" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Left_2_Joint"
+        multiplier="0.005"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Left_Little_Pad_Link">
+    <link
+      name="Left_Little_Pad_Link">
+      <inertial>
+        <origin
+          xyz="0.00120427010273755 0.00347612360648736 2.01794679817902E-17"
+          rpy="0 0 0" />
+        <mass
+          value="0.182124075144935" />
+        <inertia
+          ixx="0.000369736786806016"
+          ixy="2.61988910692794E-05"
+          ixz="-2.12884012534417E-20"
+          iyy="0.000436283483679481"
+          iyz="7.94396388247089E-21"
+          izz="8.63168373322183E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_Little_Pad_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_Little_Pad_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Left_Little_Pad_Joint"
+      type="fixed">
+      <origin
+        xyz="0.166623115409727 -0.0841827619597156 0"
+        rpy="0 0 0" />
+      <parent
+        link="Left_2_Link" />
+      <child
+        link="Left_Little_Pad_Link" />
+      <axis
+        xyz="0 0 0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="v1_Link">
+    <link name="v1_Link"></link>
+    <joint
+      name="v1_link_Joint"
+      type="revolute">
+      <origin
+        xyz="0.274021669036993 -0.0949322121210581 0"
+        rpy="0 0 0" />
+      <parent
+        link="Left_2_Link" />
+      <child
+        link="v1_Link" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Left_2_Joint"
+        multiplier="-1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="v2_Link">
+    <link name="v2_Link"></link>
+    <joint
+      name="v2_link_Joint"
+      type="prismatic">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent
+        link="v1_Link" />
+      <child
+        link="v2_Link" />
+      <axis
+        xyz="-0.520848995108535 0.853647066192808 0.00173512963252981" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Left_Push_Joint"
+        multiplier="0.5"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Left_Support_Link">
+    <link
+      name="Left_Support_Link">
+      <inertial>
+        <origin
+          xyz="0.0367202829413875 0.0091684400619339 1.81462161047166E-10"
+          rpy="0 0 0" />
+        <mass
+          value="0.906672737211858" />
+        <inertia
+          ixx="0.00289030078913858"
+          ixy="-0.00146506266831225"
+          ixz="1.60555283489395E-12"
+          iyy="0.00137106378591019"
+          iyz="9.46939904488275E-13"
+          izz="0.0040684767877317" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_Support_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 1 1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_Support_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Left_Support_Joint"
+      type="revolute">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent
+        link="v2_Link" />
+      <child
+        link="Left_Support_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Left_Push_Joint"
+        multiplier="6"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Left_Big_Pad_Link">
+    <link
+      name="Left_Big_Pad_Link">
+      <inertial>
+        <origin
+          xyz="0.00656123465622821 0.00337508878762305 -3.42833866950292E-16"
+          rpy="0 0 0" />
+        <mass
+          value="1.2968417872181" />
+        <inertia
+          ixx="0.011003396107421"
+          ixy="-3.67408391418347E-06"
+          ixz="3.82656386816915E-19"
+          iyy="0.00732369544364214"
+          iyz="-2.8302942455812E-18"
+          izz="0.00371132579688045" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_Big_Pad_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Left_Big_Pad_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Left_Big_Pad_Joint"
+      type="fixed">
+      <origin
+        xyz="-0.0366333915441526 -0.104453313130669 0"
+        rpy="0 0 0" />
+      <parent
+        link="Left_Support_Link" />
+      <child
+        link="Left_Big_Pad_Link" />
+      <axis
+        xyz="0 0 0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="v7_Link">
+    <link name="v7_Link"></link>
+    <joint
+      name="v7_link_Joint"
+      type="revolute">
+      <origin
+        xyz="0.0950000000015748 -0.000368553999946246 -0.425999999994079"
+        rpy="1.5707963267949 0 0" />
+      <parent
+        link="base_link" />
+      <child
+        link="v7_Link" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="0"
+        upper="1"
+        effort="2"
+        velocity="1000" />
+      <mimic
+        joint="v3_link_Joint"
+        multiplier="1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Right_2_Link">
+    <link
+      name="Right_2_Link">
+      <inertial>
+        <origin
+          xyz="0.133725313824533 -0.0462155186433647 -4.59878897914584E-17"
+          rpy="0 0 0" />
+        <mass
+          value="0.562750199323434" />
+        <inertia
+          ixx="0.000732620760301983"
+          ixy="0.00140247933871755"
+          ixz="2.49499052670377E-19"
+          iyy="0.00427949035037112"
+          iyz="-9.98967090897027E-20"
+          izz="0.0046036157574959" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_2_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_2_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Right_2_Joint"
+      type="revolute">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent
+        link="v7_Link" />
+      <child
+        link="Right_2_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="1"
+        effort="2"
+        velocity="1000" />
+      <mimic
+        joint="Left_2_Joint"
+        multiplier="-1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="v8_Link">
+    <link name="v8_Link"></link>
+    <joint
+      name="v8_link_Joint"
+      type="prismatic">
+      <origin
+        xyz="0.168817203600974 -0.0320273597460812 0"
+        rpy="0 0 0" />
+      <parent
+        link="Right_2_Link" />
+      <child
+        link="v8_Link" />
+      <axis
+        xyz="-0.520848995108535 0.853647066192808 0.00173512963252981" />
+      <limit
+        lower="0"
+        upper="1"
+        effort="2"
+        velocity="1000" />
+      <mimic
+        joint="v4_link_Joint"
+        multiplier="-1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Right_in_Link">
+    <link
+      name="Right_in_Link">
+      <inertial>
+        <origin
+          xyz="0.0364698944886265 0.0331640091445212 -7.48440648383625E-11"
+          rpy="0 0 0" />
+        <mass
+          value="0.018984227308732" />
+        <inertia
+          ixx="7.67027832047435E-06"
+          ixy="-7.90121078725897E-06"
+          ixz="-2.51407340461064E-11"
+          iyy="9.17411131778874E-06"
+          iyz="2.76298814673749E-11"
+          izz="1.63884310590983E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_in_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_in_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Right_in_Joint"
+      type="revolute">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent
+        link="v8_Link" />
+      <child
+        link="Right_in_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Right_2_Joint"
+        multiplier="-0.9"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Right_Lever_Link">
+    <link
+      name="Right_Lever_Link">
+      <inertial>
+        <origin
+          xyz="0.0396214366426316 0.036029883436205 2.79309624585592E-12"
+          rpy="0 0 0" />
+        <mass
+          value="0.00945776468363209" />
+        <inertia
+          ixx="5.28197876115623E-06"
+          ixy="-5.75236998080715E-06"
+          ixz="7.73042788622031E-21"
+          iyy="6.37682353682972E-06"
+          iyz="6.96063658710995E-21"
+          izz="1.16077600567449E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_Lever_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_Lever_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Right_Lever_Joint"
+      type="prismatic">
+      <origin
+        xyz="0.0276762998205563 0.0251675339714156 0"
+        rpy="0 0 0" />
+      <parent
+        link="Right_in_Link" />
+      <child
+        link="Right_Lever_Link" />
+      <axis
+        xyz="0.739843447571545 0.672779067068418 0" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Left_Lever_Joint"
+        multiplier="1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Right_Little_Pad_Link">
+    <link
+      name="Right_Little_Pad_Link">
+      <inertial>
+        <origin
+          xyz="0.00120427010273744 0.0034761236064863 -1.7595474469366E-18"
+          rpy="0 0 0" />
+        <mass
+          value="0.182124075144935" />
+        <inertia
+          ixx="0.000369736786806016"
+          ixy="2.61988910692794E-05"
+          ixz="-9.23555069031477E-21"
+          iyy="0.000436283483679481"
+          iyz="4.8082335460146E-21"
+          izz="8.63168373322183E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_Little_Pad_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_Little_Pad_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Right_Little_Pad_Joint"
+      type="fixed">
+      <origin
+        xyz="0.166623115408114 -0.0841827619605548 0"
+        rpy="0 0 0" />
+      <parent
+        link="Right_2_Link" />
+      <child
+        link="Right_Little_Pad_Link" />
+      <axis
+        xyz="0 0 0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="v5_Link">
+    <link name="v5_Link"></link>
+    <joint
+      name="v5_link_Joint"
+      type="revolute">
+      <origin
+        xyz="0.274021669035381 -0.0949322121218973 0"
+        rpy="0 0 0" />
+      <parent
+        link="Right_2_Link" />
+      <child
+        link="v5_Link" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Right_2_Joint"
+        multiplier="1"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="v6_Link">
+    <link name="v6_Link"></link>
+    <joint
+      name="v6_link_Joint"
+      type="prismatic">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent
+        link="v5_Link" />
+      <child
+        link="v6_Link" />
+      <axis
+        xyz="-0.520848995108535 0.853647066192808 0.00173512963252981" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Right_Push_Joint"
+        multiplier="0.5"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Right_Support_Link">
+    <link
+      name="Right_Support_Link">
+      <inertial>
+        <origin
+          xyz="0.038107497333581 0.0107135061647634 1.85517803132505E-10"
+          rpy="0 0 0" />
+        <mass
+          value="0.886853187022009" />
+        <inertia
+          ixx="0.00289010387331782"
+          ixy="-0.00146506276070201"
+          ixz="1.60555303313682E-12"
+          iyy="0.00137079450752633"
+          iyz="9.46939709980836E-13"
+          izz="0.00406820750922988" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_Support_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.866666666666667 0.866666666666667 0.890196078431372 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_Support_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Right_Support_Joint"
+      type="revolute">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent
+        link="v6_Link" />
+      <child
+        link="Right_Support_Link" />
+      <axis
+        xyz="0 0 1" />
+      <limit
+        lower="0"
+        upper="0"
+        effort="0"
+        velocity="0" />
+      <mimic
+        joint="Right_Push_Joint"
+        multiplier="6"
+        offset="0" />
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="Right_Big_Pad_Link">
+    <link
+      name="Right_Big_Pad_Link">
+      <inertial>
+        <origin
+          xyz="0.00656123465622832 0.00337508878762338 -9.08389560534265E-18"
+          rpy="0 0 0" />
+        <mass
+          value="1.2968417872181" />
+        <inertia
+          ixx="0.011003396107421"
+          ixy="-3.67408391418337E-06"
+          ixz="-2.2304308346056E-19"
+          iyy="0.00732369544364213"
+          iyz="-2.56001251398188E-18"
+          izz="0.00371132579688044" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_Big_Pad_Link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://crt_cthm2f650_gripper_visualization/meshes/Right_Big_Pad_Link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="Right_Big_Pad_Joint"
+      type="fixed">
+      <origin
+        xyz="-0.0366333915441528 -0.10445331313067 0"
+        rpy="0 0 0" />
+      <parent
+        link="Right_Support_Link" />
+      <child
+        link="Right_Big_Pad_Link" />
+      <axis
+        xyz="0 0 0" />
+    </joint>
+  </xacro:macro>
+
+    
+  <xacro:macro name="crt_cthm2f650">
+    <xacro:base_link/>
+    <xacro:Left_1_Link/>
+    <xacro:Left_2_Link/>
+    <xacro:Left_Big_Pad_Link/>
+    <xacro:Left_in_Link/>
+    <xacro:Left_Lever_Link/>
+    <xacro:Left_Little_Pad_Link/>
+    <xacro:Left_Push_Link/>
+    <xacro:Left_Support_Link/>
+    <xacro:Right_1_Link/>
+    <xacro:Right_2_Link/>
+    <xacro:Right_Big_Pad_Link/>
+    <xacro:Right_in_Link/>
+    <xacro:Right_Lever_Link/>
+    <xacro:Right_Little_Pad_Link/>
+    <xacro:Right_Push_Link/>
+    <xacro:Right_Support_Link/>
+    <xacro:v1_Link/>
+    <xacro:v2_Link/>
+    <xacro:v3_Link/>
+    <xacro:v4_Link/>
+    <xacro:v5_Link/>
+    <xacro:v6_Link/>
+    <xacro:v7_Link/>
+    <xacro:v8_Link/>
+  </xacro:macro>
+</robot>

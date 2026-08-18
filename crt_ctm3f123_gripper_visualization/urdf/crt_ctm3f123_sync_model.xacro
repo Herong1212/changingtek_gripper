@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<robot name="crt_ctm3f123_sync_model" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find crt_ctm3f123_gripper_visualization)/urdf/crt_ctm3f123_sync.xacro" />
+  <xacro:crt_ctm3f123_sync/>
+</robot>
